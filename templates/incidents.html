@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Incidents</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<nav>
+    Demo Bank – Incident Management
+    <span class="nav-right">
+        <a href="/dashboard">Dashboard</a>
+        <a href="/incidents">Incidents</a>
+    </span>
+</nav>
+
+<div class="container">
+
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+        <h2>Incidents</h2>
+        <!-- CREATE INCIDENT ENTRY POINT -->
+        <a href="/incidents/create" class="btn">+ Create Incident</a>
+    </div>
+
+    <form method="get" style="margin-top:15px;">
+        <input name="service_name" placeholder="Service">
+        <select name="severity">
+            <option value="">Severity</option>
+            <option>P1</option>
+            <option>P2</option>
+            <option>P3</option>
+            <option>P4</option>
+        </select>
+        <select name="status">
+            <option value="">Status</option>
+            <option>OPEN</option>
+            <option>ACKNOWLEDGED</option>
+            <option>IN_PROGRESS</option>
+            <option>RESOLVED</option>
+            <option>CLOSED</option>
+        </select>
+        <button>Search</button>
+    </form>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Service</th>
+            <th>Severity</th>
+            <th>Status</th>
+        </tr>
+        {% for i in incidents %}
+        <tr>
+            <td>{{ i.id }}</td>
+            <td><a href="/incidents/{{ i.id }}">{{ i.title }}</a></td>
+            <td>{{ i.service_name }}</td>
+            <td>{{ i.severity }}</td>
+            <td>{{ i.status }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</div>
+
+</body>
+</html>

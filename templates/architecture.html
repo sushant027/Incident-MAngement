@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Architecture</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<nav>
+    Demo Bank – Incident Management
+    <span class="nav-right">
+        <a href="/dashboard">Dashboard</a>
+    </span>
+</nav>
+
+<div class="container">
+
+<h2>Bank Architecture</h2>
+
+{% for a in architectures %}
+<div class="card">
+    <h3>{{ a.title }}</h3>
+    <p>{{ a.description }}</p>
+    {% if a.diagram_reference %}
+        <a href="{{ a.diagram_reference }}" target="_blank">View Diagram</a>
+    {% endif %}
+</div>
+{% endfor %}
+
+</div>
+
+</body>
+</html>

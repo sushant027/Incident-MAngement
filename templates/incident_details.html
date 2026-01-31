@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Incident Detail</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<nav>
+    Demo Bank – Incident Management
+    <span class="nav-right">
+        <a href="/incidents">Back to Incidents</a>
+    </span>
+</nav>
+
+<div class="container">
+
+<h2>Incident #{{ incident.id }}</h2>
+
+<div class="card">
+    <p><strong>Title:</strong> {{ incident.title }}</p>
+    <p><strong>Status:</strong> {{ incident.status }}</p>
+    <p><strong>Severity:</strong> {{ incident.severity }}</p>
+    <p><strong>Service:</strong> {{ incident.service_name }}</p>
+    <p><strong>Description:</strong><br>{{ incident.description }}</p>
+</div>
+
+<h3>Timeline</h3>
+<ul class="timeline">
+    {% for t in timeline %}
+    <li>
+        <strong>{{ t.timestamp }}</strong><br>
+        {{ t.action }} – {{ t.details }}
+    </li>
+    {% endfor %}
+</ul>
+
+</div>
+
+</body>
+</html>

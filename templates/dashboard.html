@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<nav>
+    Demo Bank – Incident Management
+    <span class="nav-right">
+        <a href="/dashboard">Dashboard</a>
+        <a href="/incidents">Incidents</a>
+        <a href="/architecture">Architecture</a>
+        <a href="/reports">Reports</a>
+    </span>
+</nav>
+
+<div class="container">
+
+    <h2>Dashboard</h2>
+
+    <div class="card">
+        <p>
+            <strong>User:</strong> {{ user.username }}<br>
+            <strong>Role:</strong> {{ user.role }}
+        </p>
+    </div>
+
+    <div class="grid">
+        <div class="card">
+            <h3>Incidents</h3>
+            <p>View and manage incidents</p>
+            <a class="btn" href="/incidents">Open</a>
+        </div>
+
+        <div class="card">
+            <h3>Search</h3>
+            <p>Search historical incidents</p>
+            <a class="btn" href="/incidents/search">Search</a>
+        </div>
+
+        <div class="card">
+            <h3>Reports</h3>
+            <p>Generate executive reports</p>
+            <a class="btn" href="/reports">Generate</a>
+        </div>
+    </div>
+
+    <form method="post" action="/logout">
+        <button class="btn danger">Logout</button>
+    </form>
+
+</div>
+
+</body>
+</html>
